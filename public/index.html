@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplayer Bingo Engine</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>⚔️ Bingo <span class="highlight">Battle</span></h1>
+        
+        <div id="lobby">
+            
+            <div id="loginSection">
+                <input type="text" id="playerName" placeholder="Enter Name">
+                <button onclick="joinGame()">Join Room 🚀</button>
+            </div>
+
+            <div id="waitingSection" class="hidden">
+                <h2 id="statusMsg">Waiting for Host...</h2>
+                
+                <h3>Players in Session:</h3>
+                <ul id="playerList"></ul>
+
+                <button id="startBtn" onclick="requestStart()" class="hidden" style="background: #22c55e; margin-top:10px;">👑 START GAME</button>
+            </div>
+
+        </div>
+
+        <div id="gameUI" class="hidden">
+            <div class="hud">
+                <div class="ball" id="currentBall">?</div>
+                <p>Current Number</p>
+            </div>
+
+            <div id="ticket" class="grid-container"></div>
+            
+            <button onclick="claimWin()" class="btn-win">I HAVE BINGO! 🏆</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
